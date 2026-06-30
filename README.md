@@ -61,5 +61,5 @@ Make sure PostgreSQL and Redis are running locally (or in containers).
 ### Open your browser and go to:
 ```
 http://127.0.0.1:5000
-You should see the “Hello Shaikh Prajyot” message
+You should see the “Hello Prajyot Fulsundar” message
 ```
