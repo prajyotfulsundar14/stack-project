@@ -1,0 +1,53 @@
+services:
+  web:
+    image: Prajyotfirdous22/python-stack-multi
+    ports:
+      - "5000:5000"
+
+    environment:
+        POSTGRES_HOST: db
+        POSTGRES_USER: Prajyot_user
+        POSTGRES_PASSWORD: Prajyot_pass
+        POSTGRES_DB: Prajyot_db
+        REDIS_HOST: redis
+    depends_on:
+       db:
+          condition: service_healthy
+       redis:
+          condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - my-network
+  db:
+    image: postgres:latest
+    environment:
+     POSTGRES_USER: Prajyot_user
+     POSTGRES_PASSWORD: Prajyot_pass
+     POSTGRES_DB: Prajyot_db
+    volumes:
+      - myvol:/var/lib/myvol/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U Prajyot_user -d Prajyot_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - my-network
+
+  redis:
+    image: redis:latest
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - my-network
+
+volumes:
+  myvol:
+
+networks:
+  my-network:

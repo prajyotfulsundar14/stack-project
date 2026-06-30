@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello Prajyot's Vault</title>
+    <style>
+        body {
+            background-color: #d6ecff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #2b7bb9;
+        }
+
+        .count {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #555;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>Hello Prajyot Fulsundar🌸</h1>
+        <div class="count">
+            You have visited this page <b>{{ visits }}</b> times ✨
+        </div>
+        <div class="footer">
+            Powered by Flask + Postgres + Redis
+        </div>
+    </div>
+</body>
+
+</html>
